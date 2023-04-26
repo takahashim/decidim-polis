@@ -4,7 +4,13 @@ module Decidim
   module Polis
     module PolisHelper
       def avatar_url
-        "https://#{current_organization.host}#{current_user.avatar}"
+        avatar_path = if current_user.avatar.attached?
+                        current_user.avatar.default_url
+                      else
+                        ActionController::Base.helpers.asset_pack_path("media/images/default-avatar.svg")
+                      end
+
+        "https://#{current_organization.host}#{avatar_path}"
       end
     end
   end
