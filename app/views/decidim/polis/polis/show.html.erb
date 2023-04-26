@@ -38,6 +38,7 @@
       <% if user_signed_in? %>
         <div
           class='polis column'
+          data-conversation_id='<%= site_id %>'
           data-page_id="<%= page_id %>"
           data-site_id="<%= site_id %>"
           data-ucw="<%= current_settings.write_enabled? %>"
@@ -74,6 +75,7 @@
         </div>
 
         <div class="polis"
+             data-conversation_id='<%= site_id %>'
              data-page_id="<%= page_id %>"
              data-site_id="<%= site_id %>"
              data-ucw="false"
