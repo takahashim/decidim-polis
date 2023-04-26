@@ -19,7 +19,7 @@ module Decidim
       end
 
       def site_url_for_regex
-        site_url.sub(%r{^https?://(www.)?}, "")
+        site_url&.sub(%r{^https?://(www.)?}, "")
       end
 
       def page_id
