@@ -4,17 +4,11 @@ module Decidim
   module Polis
     class Permissions < Decidim::DefaultPermissions
       def permissions
-        return permission_action unless user
+        return permission_action if permission_action.scope != :admin
 
-        can_manage? if permission_action.action == :manage && permission_action.subject == :polis
+        permission_action.allow! if permission_action.action == :update
 
         permission_action
-      end
-
-      private
-
-      def can_manage?
-        allow! if user.admin? || user.role?("user_manager")
       end
     end
   end

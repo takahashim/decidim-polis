@@ -12,29 +12,13 @@ module Decidim
       paths["lib/tasks"] = nil
 
       routes do
-        get "/organization/configuration/edit" => "configuration#edit"
-        put "/organization/configuration/update" => "configuration#update"
-
-        resources :polis do
-          resources :attachments
-        end
-
-        root to: redirect("../edit")
+        post "/", to: "conversations#update", as: :conversation
+        root to: "conversations#edit"
       end
 
       initializer "decidim_polis.admin_mount_routes" do
         Decidim::Core::Engine.routes do
           mount Decidim::Polis::AdminEngine, at: "/admin", as: "decidim_admin_polis"
-        end
-      end
-
-      initializer "decidim_polis.configuration_menu" do
-        Decidim.menu :admin_settings_menu do |menu|
-          menu.item I18n.t("decidim.admin.menu.decidim_polis", default: I18n.t("decidim.admin.menu.decidim_polis")),
-                    decidim_admin_polis.organization_configuration_edit_path,
-                    position: 2,
-                    if: allowed_to?(:update, :organization, organization: current_organization),
-                    active: is_active_link?(decidim_admin_polis.organization_configuration_edit_path)
         end
       end
 
