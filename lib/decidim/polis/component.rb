@@ -14,6 +14,8 @@ Decidim.register_component(:polis) do |component|
     settings.attribute :description, type: :text, editor: true, translated: true
     settings.attribute :social_sign_in_enabled, type: :boolean, default: false
     settings.attribute :visualization_enabled, type: :boolean, default: false
+    settings.attribute :site_id, type: :string, translated: false
+    settings.attribute :site_url, type: :string, translated: false
   end
 
   component.settings(:step) do |settings|
