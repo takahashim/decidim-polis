@@ -15,15 +15,15 @@ jobs:
     runs-on: ubuntu-latest
     services:
       postgres:
-        image: postgres:11.6-alpine
+        image: postgres:12.17
         ports:
           - 5432:5432
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
-        ruby-version: 2.7.5
+        ruby-version: 3.1.1
     - name: Install dependencies
       run: bundle install
     - name: Run tests
