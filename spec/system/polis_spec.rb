@@ -7,7 +7,7 @@ describe "pol.is" do
 
   let(:site_id) { ENV.fetch("POLIS_SITE_ID", nil) }
   let(:organization) { create(:organization, polis_site_id: site_id) }
-  let(:user) { create(:user, :confirmed, organization: organization) }
+  let(:user) { create(:user, :confirmed, organization:) }
   let(:manifest_name) { "polis" }
   let(:fixed_slug) { "fixed-test-slug" }
 
@@ -49,7 +49,7 @@ describe "pol.is" do
   end
 
   context "when user can manage decidim" do
-    let(:user) { create(:user, :admin, :confirmed, organization: organization) }
+    let(:user) { create(:user, :admin, :confirmed, organization:) }
 
     before do
       login_as user, scope: :user
