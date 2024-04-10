@@ -12,6 +12,10 @@ end
 
 FactoryBot.modify do
   factory :organization, class: "Decidim::Organization" do
+    transient do
+      create_static_pages { true }
+    end
+
     name { Faker::Company.unique.name }
     reference_prefix { Faker::Name.suffix }
     time_zone { "UTC" }
@@ -47,9 +51,11 @@ FactoryBot.modify do
     polis_site_id { Faker::Hipster.word }
     polis_site_url { "https://polis.osp.dev" }
 
-    after(:create) do |organization|
-      tos_page = Decidim::StaticPage.find_by(slug: "terms-and-conditions", organization: organization)
-      create(:static_page, :tos, organization: organization) if tos_page.nil?
+    after(:create) do |organization, evaluator|
+      if evaluator.create_static_pages
+        tos_page = Decidim::StaticPage.find_by(slug: "terms-of-service", organization:)
+        create(:static_page, :tos, organization:) if tos_page.nil?
+      end
     end
   end
 end
