@@ -1266,10 +1266,22 @@ RSpec/VerifiedDoubles:
 RSpec/LeakyConstantDeclaration:
   Enabled: false
 
-RSpec/DescribedClass:
+RSpec/DescribeClass:
+  Enabled: false
+
+RSpec/NoExpectationExample:
   Enabled: false
 
 # This is the default configuration file.
+
+Capybara/ClickLinkOrButtonStyle:
+  Enabled: false
+
+FactoryBot/FactoryAssociationWithStrategy:
+  Enabled: false
+
+Gemspec/RequireMFA:
+  Enabled: false
 
 Faker/DeprecatedArguments:
   Description: 'Checks that Faker arguments style is based on Faker 2.'
