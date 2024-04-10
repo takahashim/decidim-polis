@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-describe "pol.is", type: :system do
+describe "pol.is" do
   include_context "with a component"
 
   let(:site_id) { ENV.fetch("POLIS_SITE_ID", nil) }
