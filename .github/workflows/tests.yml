@@ -5,10 +5,12 @@ on:
     branches:
       - master
       - "*-stable"
+      - "update-*"
   pull_request:
     branches:
       - master
       - "*-stable"
+      - "update-*"
 
 jobs:
   test:
