@@ -26,7 +26,6 @@ FactoryBot.modify do
     default_locale { Decidim.default_locale }
     available_locales { Decidim.available_locales }
     users_registration_mode { :enabled }
-    official_img_header { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     official_img_footer { Decidim::Dev.test_file("avatar.jpg", "image/jpeg") }
     official_url { Faker::Internet.url }
     highlighted_content_banner_enabled { false }
@@ -34,7 +33,7 @@ FactoryBot.modify do
     badges_enabled { true }
     user_groups_enabled { true }
     send_welcome_notification { true }
-    admin_terms_of_use_body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
+    admin_terms_of_service_body { Decidim::Faker::Localized.wrapped("<p>", "</p>") { generate_localized_title } }
     force_users_to_authenticate_before_access_organization { false }
     smtp_settings do
       {
