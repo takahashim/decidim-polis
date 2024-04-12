@@ -11,15 +11,15 @@ module Decidim
       private
 
       def site_id
-        current_organization.polis_site_id
+        current_component.settings.site_id
       end
 
       def site_url
-        current_organization.polis_site_url
+        current_component.settings.site_url
       end
 
       def site_url_for_regex
-        site_url.sub(%r{^https?://(www.)?}, "")
+        site_url&.sub(%r{^https?://(www.)?}, "")
       end
 
       def page_id

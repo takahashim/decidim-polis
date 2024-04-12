@@ -67,7 +67,7 @@ AllCops:
   # If a value is specified for TargetRubyVersion then it is used.
   # Else if .ruby-version exists and it contains an MRI version it is used.
   # Otherwise we fallback to the oldest officially supported Ruby version (2.0).
-  TargetRubyVersion: 2.7
+  TargetRubyVersion: 3.1
 
   RSpec:
     Patterns:
@@ -1266,10 +1266,22 @@ RSpec/VerifiedDoubles:
 RSpec/LeakyConstantDeclaration:
   Enabled: false
 
-RSpec/DescribedClass:
+RSpec/DescribeClass:
+  Enabled: false
+
+RSpec/NoExpectationExample:
   Enabled: false
 
 # This is the default configuration file.
+
+Capybara/ClickLinkOrButtonStyle:
+  Enabled: false
+
+FactoryBot/FactoryAssociationWithStrategy:
+  Enabled: false
+
+Gemspec/RequireMFA:
+  Enabled: false
 
 Faker/DeprecatedArguments:
   Description: 'Checks that Faker arguments style is based on Faker 2.'

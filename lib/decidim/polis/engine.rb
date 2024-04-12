@@ -14,8 +14,8 @@ module Decidim
         root to: "polis#show"
       end
 
-      initializer "decidim_polis.assets" do |app|
-        app.config.assets.precompile += %w(decidim_polis_manifest.js decidim_polis_manifest.css *.svg)
+      initializer "decidim_polis.webpacker.assets_path" do
+        Decidim.register_assets_path File.expand_path("app/packs", root)
       end
     end
   end

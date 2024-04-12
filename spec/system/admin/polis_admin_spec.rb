@@ -2,9 +2,9 @@
 
 require "spec_helper"
 
-describe "manage pol.is", type: :system do
+describe "manage pol.is" do
   let(:organization) { create(:organization) }
-  let(:user) { create(:user, :admin, :confirmed, organization: organization) }
+  let(:user) { create(:user, :admin, :confirmed, organization:) }
   let(:site_id) { "my_site_id" }
 
   before do
