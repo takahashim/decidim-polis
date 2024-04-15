@@ -6,6 +6,8 @@ module Decidim
     class PolisController < Decidim::Polis::ApplicationController
       helper_method :page_id, :site_id, :site_url, :site_url_for_regex
 
+      before_action :append_csp_directives
+
       def show; end
 
       private
@@ -28,6 +30,10 @@ module Decidim
         slug = params[:participatory_process_slug].presence || params[:assembly_slug]
 
         "#{current_component.id}#{slug}"
+      end
+
+      def append_csp_directives
+        content_security_policy.append_csp_directive("frame-src", site_url_for_regex)
       end
     end
   end
