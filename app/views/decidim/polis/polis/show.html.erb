@@ -10,7 +10,7 @@
   <%= render partial: "polis_aside" %>
 <% end %>
 
-<%= render layout: "layouts/decidim/shared/layout_two_col", locals: {reverse: true} do %>
+<%= render layout: "layouts/decidim/shared/layout_item" do %>
   <section class="layout-main__section layout-main__heading">
     <% if allowed_to? :manage, :polis %>
       <!-- pol.is admin buttons section -->
